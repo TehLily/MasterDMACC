@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WDV221 Intro Javascript - Arrays</title>
+
+<style>
+
+	form	{
+		border:thin solid gray;
+		width:500px;
+		background-color:rgb(15, 240, 240);
+		margin:auto;	
+        padding:20px;	
+	}
+	
+    span {
+        padding: 5px;
+        background-color: rgb(63, 224, 63);
+    }
+
+    .button {
+        margin-left: 10px;
+    }
+	
+
+</style>
+</head>
+<!--
+    Created by: Lily Ellison
+    date: 4/6/23
+-->
+<meta name:"description" content="Unit 09 Parallel Arrays Inventory Management for WDV221.">
+<meta name="keywords" content="WDV221, DMACC, Web Development, JavaScript, Homework, Unit 09, Arrays, Parallel, Lily Ellison">
+
+<body>
+<script>
+    const products = ["pen", "paper", "pencil"]
+    const inventory = [0, 0, 0]
+
+    
+
+    function convertLower(word) {
+        return word.toLowerCase();
+    }
+
+    function findInventory(p) {
+        for(let i = 0; i<products.length; i++) {
+            if(products[i] == p){
+                return inventory[i]
+            }
+        }
+        return -1
+    }
+
+    function displayInventory() {
+        let p = document.getElementById("searchProduct").value;
+        let item = convertLower(p);
+        let itemInventory = findInventory(item);
+        if(itemInventory == -1){
+            document.getElementById("displayProduct").innerHTML = "We do not sell this product.";
+        }
+        else {
+            document.getElementById("displayProduct").innerHTML = itemInventory;
+        }
+    }
+
+    function increaseInventory() {
+        let p = document.getElementById("searchProduct").value;
+        let item = convertLower(p);
+        var amtToAdd = document.getElementById("addNum").value;
+        amtToAdd = parseInt(amtToAdd);
+
+        for(let i = 0; i<products.length; i++) {
+            if(products[i] == item){
+                inventory[i] += amtToAdd
+            }
+        }
+        displayInventory(item)
+    }
+
+    function decreaseInventory() {
+        let p = document.getElementById("searchProduct").value;
+        let item = convertLower(p);
+        var amtToRemove = document.getElementById("removeNum").value;
+        amtToRemove = parseInt(amtToRemove);
+
+        for(let i = 0; i<products.length; i++) {
+            if(products[i] == item){
+                if (amtToRemove >= inventory[i]) {
+                    alert("Insufficient inventory on hand to remove " + amtToRemove + " items. Total inventory of " + inventory[i] + " items removed. Inventory now 0.");
+                    inventory[i] = 0;
+                    
+                }
+                else {
+                    inventory[i] -= amtToRemove;
+                }
+                
+            }
+        }
+        displayInventory(item)
+    }
+
+    function clearAllFields() {
+        let fieldVal = "";
+        document.getElementById("removeNum").value = fieldVal;
+        document.getElementById("addNum").value = fieldVal;
+        document.getElementById("searchProduct").value = fieldVal;
+        document.getElementById("displayProduct").innerHTML = fieldVal;
+    }
+
+</script>
+
+<form id="form1" name="form1" method="post" action="">
+
+<h1>Inventory Management</h1>
+
+<h3>Please enter a product: <input type="text" name="searchProduct" id="searchProduct"></h3>
+
+<script>
+    var inventoryProduct = document.getElementById("searchProduct").value;
+</script>
+
+<p class="button">
+    <input type="button" value="Display Inventory" onClick="displayInventory()">
+</p>
+
+<p>Inventory for selected product: <span id="displayProduct"></span></p>
+
+<p>Number to add to inventory: <input type="text" name="addNum" id="addNum" ></p>
+
+<p class="button">
+    <input type="button" value="Add to Inventory" onClick="increaseInventory()">
+</p>
+
+<p>Number to remove from inventory: <input type="text" name="removeNum" id="removeNum"></p>
+
+<p class="button">
+    <input type="button" value="Remove from Inventory" onClick="decreaseInventory(inventoryProduct)">
+</p>
+
+<p class="button">
+    <input type="reset" name="button2" id="button2" value="Reset" onclick="clearAllFields()" />
+</p>
+
+</form>
+
+
+
+
+</body>
+</html>

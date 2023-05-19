@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>WDV2221 Intro Javascript</title>
+
+<!--modified by Lily Ellison
+    date: February 10, 2023  -->
+
+    <meta name="description" content="Event Handlers for WDV221">
+    <meta name="keywords" content="WDV221, DMACC, Web Development, JavaScript, Homework, HTML, Event Handlers, onclick, onmouseover, onmouseout, onchange, onload, Lily Ellison">
+
+    <link rel="stylesheet" href="../../css/main_style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Red+Hat+Mono&family=Roboto+Serif:opsz@8..144&display=swap" rel="stylesheet"> 
+
+    <style>
+        * {
+           box-sizing: border-box;
+        }
+        .box {
+           flex: 100%;
+            }
+        @media only screen and (min-width: 600px) {
+           .box {
+              flex: 50%;
+            }
+        }
+        @media screen and (min-width: 768px) {
+           .box {
+              flex: 40%;
+            }
+        }
+        @media screen and (min-width: 992px) {
+           .box {
+              flex: 30%;
+            }
+        }
+        @media screen and (min-width: 1200px) {
+           .box {
+              flex: 20%;
+            }
+        }
+     </style>
+</head>
+
+<body onload="welcomeAlert()">
+
+<h1>Event Handlers</h1>
+<h2>Unit 5</h2>
+
+<p>On this page, we will demonstrate some event handlers in HTML and JavaScript. Event handlers are pieces of code that handle "events," or actions. These actions are either taken by the user (mouse movements, button clicking, keyboard entry, etc) or the browser (loading or unloading the page, processing an error, etc). These actions cause changes on the webpage for the user and these bits of code "handle" the changes to give us interactive experiences.
+</p>
+
+<script>
+function sayHello() {
+    document.getElementById("howdy").innerHTML = "Hello!";
+}
+
+function makeBold() {
+    document.getElementById("bold").style.color = "red";
+}
+
+function colorChange() {
+    document.getElementById("backgroundColor").style.backgroundColor = "yellow";
+}
+
+function stateChange() {
+    var changeInfo = document.getElementById("springClasses").value;
+    document.getElementById("showHere").innerHTML = "You selected: " + changeInfo;
+}
+
+function welcomeAlert() {
+    alert("Hello! Let's learn about event handlers!")
+}
+</script>
+
+<p>
+    The "onlclick" event handler is very common and often used with a button. Click on the button say hello.
+    
+    <button onclick="sayHello()">Greetings</button>
+</p>
+<p id="howdy"></p>
+
+<p>
+    We can do the same thing by using the "click" event listener in JavaScript as well. This adds an event handler to an element in the HTML code. Click on this button to say hi this way.
+    
+    <button id="hiListen">Salutations</button>
+</p>
+<p id="hola"></p>
+
+<script>
+    document.getElementById("hiListen").addEventListener("click", sayHi);
+    function sayHi() {
+        document.getElementById("hola").innerHTML = "Hi!"
+    }
+</script>
+
+<p>
+    Next, we will look at" onmouseover." This action only needs to happen once to trigger the associated change stay. Move your mouse over the following text to make it red.
+</p>
+
+<p id="bold" onmouseover="makeBold()">I'm important! Pay attention!</p>
+
+<p id="backgroundColor" onmouseout="colorChange()"> Similar to onmouseover, the "onmouseout" event handler makes changes when the user moves the mouse cursor away from an element on page. To see this in action, hover over this paragraph and then move your mouse away from it to change the background color.</p>
+
+<p>The "onchange" event handler can be used to put out a message when the user has changed something on the page, like a new choice in a drop-down menu. To see an example, select a class from the list on classes I am taking this semester.</p>
+
+<select id="springClasses" onchange="stateChange()">
+    <option value="Data Structures">Data Structures</option>
+    <option value="Java">Java</option>
+    <option value="JavaScript">JavaScript</option>
+    <option value="Database and SQL">Database and SQL</option>
+    <option value="Python">Python</option>
+</select>
+
+<p id="showHere"></p>
+
+<p>The "onload" event handler activates once the element it is associated with has loaded. The example given here was the pop-up message welcoming you to this page. The function that instructed this to happen was triggered once the body of this webpage had loaded to the browser. This event handler can be used to ensure all code is loaded before a part of the code is run so there is less chance of encountering an error.</p>
+
+<p>
+    There are many, many more event handlers, but that's all we'll get into here. Hope you enjoyed this demostation of some event handlers!
+</p>
+
+
+
+</body>

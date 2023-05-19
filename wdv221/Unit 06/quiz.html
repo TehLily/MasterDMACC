@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WDV221 Intro Javascript - Operators and Textfields Assignment</title>
+
+<!--modified by Lily Ellison
+    date: February 16, 2023  -->
+
+    <meta name="description" content="Operators and Textfields for WDV221">
+    <meta name="keywords" content="WDV221, DMACC, Web Development, JavaScript, Class, Operators, Textfields, Assignment, Lily Ellison">
+<style>
+
+body {background-color:#d5c2c2;
+}
+
+.highlightTitle	{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-style:italic;
+	font-size:14px;
+	text-decoration:underline;
+	color:#096;
+}
+
+</style>
+
+<script>
+
+function intoFloat() {
+    var quizNum = document.getElementById("entry").value;
+    var asFloat = parseFloat(quizNum);
+    document.getElementById("displayResult").value = asFloat;
+}
+
+function intoInt() {
+    var quizNum = document.getElementById("entry").value;
+    var asInt = parseInt(quizNum);
+    document.getElementById("displayResult").value = asInt;
+}
+
+//var manualNum = parseInt(0.32%);
+document.write(parseInt(45.2%));
+
+</script>
+
+</head>
+
+<body>
+
+<p>Enter number to parse:
+    <input type="text" id="entry"/>
+</p>
+
+<p>
+    <input type="button" value="Float" onclick="intoFloat()" />
+    <input type="button" value="Int" onclick="intoInt()"/>
+    Result:
+    <input type="text" id="displayResult"/>
+</p>
+
+<p>
+    Manual entry:
+    <input type="text" id="displayManual"/>
+</p>
+
+
+
+<p>&nbsp;</p>
+</body>
+</html>

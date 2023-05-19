@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WDV221 Intro Javascript - Loops</title>
+</head>
+<!--
+    Modified by: Lily Ellison
+    date: 3/23/23
+-->
+<meta name:"description" content="Unit 08 Loops Assignment for WDV221.">
+<meta name="keywords" content="WDV221, DMACC, Web Development, JavaScript, Homework, Unit 08, Loops, Lily Ellison">
+
+<body>
+<h1>WDV221 Intro Javascript</h1>
+<h2>Unit-8 Loops Assignment</h2>
+<hr />
+<p>Please complete the following exercises on this page. When complete post this page to your  server. Make a link in your WDV221 homework  page for this assignment. </p>
+<p>Include a comment in each script with the exercise number and a description of what the script is supposed to do.</p>
+<p>Using Blackboard submit this  Assignment.</p>
+<hr />
+<h3>Instructions: </h3>
+<p>Please complete the following exercises using JavaScript loops as indicated.  Please place your code on this page. Use runtime scripts unless told otherwise. </p>
+<p>1. Create a WHILE loop that will print out the  numbers 0 to 4 each on a seperate line.</p>
+<p>
+    <script> //1. While loop that prints 0 to 4 on a new line
+        var x=0;		//Loop control variable, starts at 0
+        while(x<=4)	{	//checks the variable before looping
+            document.write(x + "<br/>");	//display the value of x each time through the loop and start a new line
+            x++;				//increment x by one
+        }
+    </script> 
+</p>
+<p>2. Create a FOR loop that will print out the  numbers 4 to 0 each on a seperate line.</p>
+<p>
+    <script> //2. For loop that prints 4 to 0 on a new line
+        for(let x = 4; x >= 0; x--) { //for loop variable, condition, and decrease for each loop through
+            document.write(x + "<br/>");	//display the value of x on a new line each time through the loop
+        }
+    </script> 
+</p>
+<p>3. Create a loop that will print 1 to 5 each in its own paragraph element.</p>
+<p>
+    <script> //3. loop to print 1 to 5 in its own paragraph element
+        var x=1;		//Loop control variable, starts at 1
+        while(x<=5)	{	//checks the variable before looping
+            document.write("<p>" + x + "</p>");	//display the value of x in a paragraph each time through the loop
+            x++;		//increment x by one	
+        }
+    </script>    
+</p>
+
+<p>4. Create a loop that will print out the following numbers (5,10,15,20,25...) until one is greater than 40.</p>
+<p>
+    <script> //4. loop to print numbers 5 - 45, increasing by 5 each time
+        var x=5;		//Loop control variable, starts at 5
+        while(x<=45)	{	//checks the variable before looping
+            if (x == 45) { //last item in list, no ", " at end
+                document.write(x);
+                x+=5;
+            }
+            else {
+                document.write(x + ", ");	//display the value of x with a comma and space each time through the loop
+                x+=5;   //increment x by 5
+            }				
+        }
+    </script>    
+</p>
+
+<p>5. Create a loop that will print out  6 of the following messages (Option 1, Option 2, Option 3, etc. ) as options within the drop down menu below.</p>
+<p>
+  <label>Select an Option! 
+    <select name="select" id="select">        
+    </select>
+  </label>
+</p>
+
+<p>
+    <script> //5. loop to create options titled Option 1 through Option 6 for drop-down menu
+        var x=1;		//Loop control variable, starts at 1
+        while(x<=6)	{	//checks the variable before looping
+            let option = "Option " + x; //sets variable to hold option name which displays the value of x
+            document.getElementById("select").innerHTML += "<option value=" + option + "> " + option + "</option>";	//add the option to the drop down list for every time looped
+            x++;				//increment x	
+        }
+    </script>    
+</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

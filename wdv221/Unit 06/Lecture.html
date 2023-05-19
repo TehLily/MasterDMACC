@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Intro Javascript - Class 2/16/23</title>
+
+<!--modified by Lily Ellison
+    date: February 16, 2023  -->
+
+    <meta name="description" content="Class on 2/2/23 for WDV221">
+    <meta name="keywords" content="WDV221, DMACC, Web Development, JavaScript, Class, Lily Ellison">
+
+<style>
+
+body {background-color:#d9eff6;
+}
+
+.highlightTitle	{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-style:italic;
+	font-size:14px;
+	text-decoration:underline;
+	color:#096;
+}
+
+</style>
+
+<body>
+
+<script>
+    //runtime script
+    document.write("<p>some data</p>");
+
+    function AddText() {
+        //Trying to call document.write from an event.
+        //document.write("<p>some data from AddText</p>")
+        document.getElementById("p2").innerHTML = "some data from AddText";
+    }
+
+    //AddText();
+</script>
+
+<p id="p2"> Some text </p>
+
+<!--<p><input type="text" id="textbox1"/></p>
+<p><input type="text" id="textbox2"/></p>
+<input type="button" value="Add text" onclick="AddText()" />-->
+
+
+<script>
+
+function getValues() {
+    var values = document.getElementById("textbox1").value + " - " + document.getElementById("textbox2").value
+    alert(values)
+}
+
+//FOR CLASS: change all type "submit" to type "button"
+
+function getValue() {
+    var value = document.getElementById("textbox1").value
+    alert(value)
+}
+
+function clearVal() {
+
+}
+
+</script>
+
+<h2>Types of buttons</h2>
+
+<form>
+    <p><input type="text" id="textbox1"/></p>
+<input type="button" value="Submit (button)" onclick="getValue();"/> //does nothing until instructed (onclick or like)
+<input type="submit" value="Submit" onclick="getValue();"/> //sends input to specified page (.php's)
+<input type="reset" value="Reset" onclick="clearVal()"/> //clears form elements
+<button>button</button> //works like "submit" type
+
+</form>
+
+</body>

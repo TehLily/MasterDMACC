@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WDV221 Intro Javascript - Dice Roller</title>
+	<link rel="stylesheet" href="../../css/main_style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Macondo&family=Red+Hat+Mono&family=Roboto+Serif:opsz@8..144&display=swap" rel="stylesheet"> 
+	<style> 
+		* {
+		   box-sizing: border-box;
+		}
+		.box {
+		   flex: 100%;
+		}
+		@media only screen and (min-width: 600px) {
+		   .box {
+			  flex: 50%;
+			}
+		}
+		@media screen and (min-width: 768px) {
+		   .box {
+			  flex: 40%;
+			}
+		}
+		@media screen and (min-width: 992px) {
+		   .box {
+			  flex: 30%;
+			}
+		}
+		@media screen and (min-width: 1200px) {
+		   .box {
+			  flex: 20%;
+			}
+		}
+		#playerInfo {
+			text-align: left;
+			list-style-position: inside;
+		}
+
+		#damageStatus {
+			text-align: center;
+		}
+		
+		#goblinInfo {
+			text-align: right;
+			list-style-position: inside;
+		}
+		footer {
+   			background-color:darkslategray;
+   			color:white;
+   			padding:5px;
+   			margin:10px 0 0 0;
+			text-align: center;
+			font-size: smaller;
+		}
+		.center {
+		   	display: block;
+   			margin-left: auto;
+   			margin-right: auto;
+   			padding: 10px;
+		}
+		.button {
+  			
+  			padding: 15px 32px;
+  			text-align: center;
+  			display: inline-block;
+  			font-size: 18px;
+  			margin: 4px 2px;
+			justify-content: center;
+		}
+	</style>
+</head>
+<!--
+  Modified by: Lily Ellison
+  date: 5/4/23
+-->
+<meta name:"description" content="Dice Rolling Project for WDV221.">
+<meta name="keywords" content="WDV221, DMACC, Web Development, JavaScript, Homework, Final, Final Project, Dice, Dice Rolling, D8, D20, Goblin, D&D, Magnus, Magnus Burnsides, Jamie Denman_Jones, TAZ, The Adventure Zone, Travis McElroy, Lily Ellison">
+<html>
+<body >
+
+<h1>WDV221</h1>
+<h2>~Fight the Goblin~</h2>
+
+<h3>Help Magnus fight the Goblin by rolling dice.</h3>
+<div class="flex-container">
+<div class="box">
+<img src = "imgs/magnusByJamieDenman_Jones.jpg" id = "magnus"/>
+</div>
+<div class="box">
+<img src = "imgs/swords.png" id = "swords"/>
+</div>
+<div class="box">
+<img src = "imgs/goblin.png" id = "goblin"/>
+</div>
+</div>
+<br>
+
+<ul id="playerInfo">Magnus:
+	<li id="displayPlayerHP">Hit points: 12</li>
+</ul>
+<ul id="goblinInfo">Goblin:
+	<li id="displayGoblinHP">Hit points: 7</li>
+</ul>
+
+<p id="damageStatus"></p>
+
+<script>
+	var goblinHP = 7;
+			
+	var playerHP = 12;
+
+	//Random number gen from w3schools
+	//Generate a random # between min and max (including Max)
+	function getRndInteger(min, max) {
+	  return Math.floor(Math.random() * (max - min + 1) ) + min;
+	}
+
+	function getD20Image(num) { //gets the appropriate die image
+		return "imgs/D20/" + num + ".jpg";
+	}
+
+	function getD8Image(num) { //gets the appropriate die image
+		return "imgs/D8/" + num + ".jpg";
+	}
+
+	function isAHit(rollValue, defender) {  //determines if the number rolled on the d20, plus the attack bonus is >= the opponent's armor class (hits)
+		var playerAC = 18;
+		var goblinAC = 15;
+		if(defender == "player") {
+			return rollValue >= goblinAC;
+		}
+		else {
+			return rollValue >= playerAC;
+		}
+	}
+
+	function updatePlayerHitPoints(damage) { //updates the player's hit points based on the damage done by the goblin
+		playerHP -= damage;
+		var hpMsg = "Hit Points: " + playerHP;
+		if(playerHP <= 0) {
+			alert("OH NO! You've died! The game will be reset.")
+			location.reload();
+		}
+		else {
+			document.getElementById("displayPlayerHP").innerHTML = hpMsg;
+		}
+	}
+
+	function updateGoblinHP(damage) { //updates the goblin's hit points based on the damage done by the player
+		goblinHP -= damage;
+		var hpMsg = "Hit Points: " + goblinHP;
+		if(goblinHP <= 0) {
+			document.getElementById("damageStatus").innerHTML = "HUZZAH! You've hit the goblin for "+ damage + " points and killed him! Please click \"Reset\" to play again.";
+			document.getElementById("hitButton").disabled = true; //diables all buttons but reset
+			document.getElementById("damageButton").disabled = true;
+		}
+		else {
+			document.getElementById("displayGoblinHP").innerHTML = hpMsg;
+		}
+	}
+
+	function activeDamage() { //damage die activated once the player hits the goblin
+		document.getElementById("damageButton").disabled=false;
+	}
+
+	function goblinTurn() { //"rolls" for the goblin, though his rolls are not displayed
+		rollToHit("goblin");
+		document.getElementById("damageButton").disabled=true;  //disables the damage button again. Player will need to roll to hit again before they can do more damage.
+	}
+
+	function rollToHit(roller) { //simulates the die roll and processes the results based on if the roll was made by the player or goblin
+		var d20Roll = getRndInteger(1, 20);
+		var goblinAttackBonus = 4;
+		var playerAttackBonus = 9;
+		var goblinDamage = getRndInteger(3, 8);
+		
+
+		if(roller == "player") {
+			if(isAHit(parseInt(d20Roll + playerAttackBonus), "goblin")) { //if player rolls high enough to hit
+				document.getElementById("instructions").innerHTML = "Hit! Roll Damage!"; //instructed to roll damage
+				document.getElementById("damageStatus").innerHTML = ""; //clears the damage status to avoid confusion
+				activeDamage(); //turns on the roll damage button
+			}
+			else{
+				document.getElementById("damageStatus").innerHTML = "Oh no! You missed! Now it's the goblin's turn."; //if the play misses
+				goblinTurn(); //rolls for goblin
+			}
+			document.getElementById("d20").src = getD20Image(d20Roll); //displays die roll of player only
+		}
+		else {
+			if(isAHit(parseInt(d20Roll + goblinAttackBonus), "player")) {  //if goblin hits
+				document.getElementById("instructions").innerHTML ="Goblin attacks and hits you for " + goblinDamage + " points! Roll to hit back."; //informs player
+				document.getElementById("damageButton").disabled=true; //disables roll damage until player hits again
+				updatePlayerHitPoints(goblinDamage); //updates player's hit points
+			}
+			else {
+				document.getElementById("instructions").innerHTML ="Goblin attacks and misses! Click \"Roll to hit\" to attack again."; //informs player if goblin misses
+			}
+		}
+		
+	}
+
+	function rollDamage() { //simulates rolling damage for a battleaxe (D8)
+		var d8Roll = getRndInteger(1, 8); //battleaxe damage
+		document.getElementById("d8").src = getD8Image(d8Roll); //gets d8 image for roll and updates it
+		var playerDamageBonus = 2; //adds damage bonus to the roll
+		let totalDamage = d8Roll + playerDamageBonus; //total damage done
+		document.getElementById("damageStatus").innerHTML = "You hit the goblin for " + totalDamage + " points!"; //informs player of the damage done to goblin
+		updateGoblinHP(totalDamage); //updates goblin's hit points
+		goblinTurn(); //rolls for goblin
+	}
+
+	function rollForPlayer() { //calls the rollToHit function with the correct 'roller' argument
+		rollToHit("player");
+	}
+
+	function clearForm() { //reloads page to clear it
+		location.reload();
+	}
+	
+</script>	
+
+<p id="instructions">Click "Roll to hit" to begin.</p>
+<div class="flex-container">
+
+<div class="box">
+<input type="button" class="button" id="hitButton" value="Roll to hit" onclick="rollForPlayer();" />
+
+<img src="imgs/D20/1.jpg" id="d20" style="width: 200px;">
+</div>
+<div class="box">
+<input type="button" class="button" id="damageButton" value="Roll Damage" onclick="rollDamage();" />
+
+<script>
+	document.getElementById("damageButton").disabled = true;
+</script>
+
+<img src="imgs/D8/1.jpg" id="d8" style="width: 175px;">
+</div>
+
+<div class="box">
+<input type="button" class="button" value="Reset" onclick="clearForm();" />
+</div>
+
+</div>
+
+<footer>   
+	<img class="center" src="imgs/magnusByJamieDenman_Jones.jpg" alt="Magnus Burnsides" width="10%" height="10%">
+	"Magnus Burnsides" is a character borrowed from 'The Adventure Zone' and is the creation and IP of Travis McElroy. Art work of Magnus is used with permission by the artist, Jamie Denman-Jones.
+</footer>
+
+</body>
+</html>

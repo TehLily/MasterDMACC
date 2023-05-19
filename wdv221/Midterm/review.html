@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Intro Javascript - Variables and Data Types Assignment</title>
+
+<style>
+
+body {background-color:lightblue;
+}
+
+.highlightTitle	{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-style:italic;
+	font-size:14px;
+	text-decoration:underline;
+	
+}
+
+
+</style>
+
+<script src="../Unit 05/functions/stringMask.js"></script>
+<script src="../Unit 05/functions/dateFunctions.js"></script>
+
+</head>
+
+<body>
+
+<script>
+var firstName = "";
+var middleName = "";
+var lastName = "";
+var acctNum = 0;
+
+function makeEmail() {
+    firstName = document.getElementById("fname").value;
+    middleName = document.getElementById("mname").value;
+    lastName = document.getElementById("lname").value;
+    var acctEmail = firstName.charAt(0) + middleName.charAt(0) + lastName + "@dmacc.edu";
+    document.getElementById("emailAddress").value = acctEmail.toLowerCase();
+    getAcct();
+}
+
+function getAcct() {
+    acctNum = prompt("Please enter account number: ");
+    document.getElementById("maskedAccount").innerHTML = maskValue(acctNum);
+}
+
+
+
+/*
+	1. create global variables for first, middle, and last name
+	2. create global variable for account 
+	3. create a function that is called from Create Account button that will do the following
+		create an email with first intial of first and middle, and full last name Matt T Hall -> MTHALL@DMACC.edu
+		prompt user for account# and store in  var from #2
+	4.	display the last 4 chars of account in maskedAccount
+		display the email address in all lowercase chars in the emailAddress text box
+
+	5. bring in the dateFunctions.js via a script and display the date in the timestamp span
+		
+
+*/
+
+</script>
+
+
+
+<p>WDV221 Midterm Review</p>
+
+<p>First Name
+<input type="text" id="fname" />
+</p>
+<p>Middle Name
+<input type="text" id="mname" />
+</p>
+<p>Last Name
+<input type="text" id="lname" />
+</p>
+<input type="button" id="createButton" value="Create Account" onclick="makeEmail()"/>
+
+
+<input type="text" id="emailAddress"/>
+<span id="maskedAccount"> </span>
+
+<span id="timestamp"> </span>
+
+<script>
+    var todayDate = getCurrentDate() + ", " + getCurrentMonthName() + " " + getCurrentYear();
+    document.getElementById("timestamp").innerHTML = todayDate;
+</script>
+
+
+
+</body>
+</html>

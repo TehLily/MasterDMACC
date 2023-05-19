@@ -1,0 +1,65 @@
+<script>
+
+    var states = [];
+
+    states[0] = "Iowa";
+
+    states[1] = "Illinois";
+
+    states[2] = "Missouri";
+
+    states[3] = "Wisconsin";
+
+    //var stateSalesTax = ["6", "11%", "7%", "8%"]; 
+
+    var stateSalesTax = [6, 11, 7, 8];  
+
+  </script>
+
+  <script>
+
+
+    function salesTaxLookup() {
+
+    var inState = document.getElementById("selectState").value; //get input from user options.
+    
+    document.getElementById("displayTaxRate").innerHTML = inState;  //Get score for selected team name
+    }
+
+</script>
+
+<form id="form1" name="form1" method="post" action="">
+
+    <p>Please select a state:
+
+      <select name="selectState" id="selectState" onchange="salesTaxLookup()">
+
+        <option>Please select a state</option>
+
+        <script>
+
+          //Create a select list of states 
+
+          for (var x = 0; x < states.length; x++) {
+
+            document.write("<option  value=" + stateSalesTax[x] + ">"
+
+              + states[x] + "</option>");
+
+
+          }
+
+        </script>
+
+      </select>
+
+    </p>
+
+    <p>The Sales tax rate is: <span id="displayTaxRate"></span> </p>
+
+    <p>
+
+      <input type="reset" name="button2" id="button2" value="Reset" />
+
+    </p>
+

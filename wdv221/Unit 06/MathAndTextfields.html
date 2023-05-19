@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WDV221 Intro Javascript - Operators and Textfields Assignment</title>
+
+<!--modified by Lily Ellison
+    date: February 16, 2023  -->
+
+    <meta name="description" content="Operators and Textfields for WDV221">
+    <meta name="keywords" content="WDV221, DMACC, Web Development, JavaScript, Class, Operators, Textfields, Assignment, Lily Ellison">
+<style>
+
+body {background-color:#d5c2c2;
+}
+
+.highlightTitle	{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-style:italic;
+	font-size:14px;
+	text-decoration:underline;
+	color:#096;
+}
+
+</style>
+
+<script>
+var count = 0;	
+
+//Problem 1: gets the number entered in the first text box and displays it in the one at the end of problem 1
+function getNumber1() {
+    var inNum1 = document.getElementById("num1").value;
+    document.getElementById("displayNumber1").value = inNum1;
+}
+
+//Problem 2: gets the number entered in the first text box and displays it in the one at the end of problem 2
+function getNumber2() {
+    var inNum2 = document.getElementById("num2").value;
+    document.getElementById("displayNumber2").value = inNum2;
+}
+
+//Problem 3. gets numbers, casts them as floats, multiplies them, and displays the result in the textbox for problem 3
+function multiplyNums() {
+  var inNum1 = document.getElementById("num1").value;
+  var inNum2 = document.getElementById("num2").value;
+  var product = parseFloat(inNum1) * parseFloat(inNum2);
+  document.getElementById("displayMulti").value = product;
+}
+
+//Problem 4. gets numbers, casts them as floats, adds them, and displays the result in the textbox for problem 4
+function addNums() {
+  var inNum1 = document.getElementById("num1").value;
+  var inNum2 = document.getElementById("num2").value;
+  var sumOfNums = parseFloat(inNum1) + parseFloat(inNum2);
+  document.getElementById("displaySum").value = sumOfNums;
+}
+
+//Problem 5. Adds one to the count for every click of the "Increment count" button and displays the current count in the textbox for problem 5
+function incrementCount() {
+  var plusOne = ++count;
+  document.getElementById("displayPlusOne").value = plusOne;
+}
+</script>
+
+</head>
+
+<body>
+<h2>WDV221 Intro Javascript</h2>
+<h3>Unit-6 Operators and Textfields - Assignment</h3>
+<hr />
+<p>Please complete the following exercises on this page. When complete post this page to your  server. Make a link in your WDV221 homework  page for this assignment. </p>
+<p>Include a comment in each script with the exercise number and a description of what the script is supposed to do.</p>
+<p>Using Blackboard submit this  Assignment.</p>
+<hr />
+<h3>Instructions</h3>
+<p>Use the form fields for the input values. For each of the following exercises create a function what will be activated by the button. Do not forget our discussion on button types. </p>
+
+<form name="form1" method="post" action="">
+
+  <p>
+    <label for="num1">Enter a number for value1:
+        <input type="text" id="num1"/>
+    </label>
+  </p>
+
+  <p>Enter a number for value 2:
+    <input type="text" id="num2"/>
+  </p>
+  
+  <p>1.
+    <input type="button" value="Display value1" onclick="getNumber1()" />
+    Display the value you entered for value1:
+  <input type="text" id="displayNumber1"/>
+  </p>
+  
+  <p>2.
+    <input type="button" value="Display value2" onclick="getNumber2()" />
+    Dislplay the value you entered for value2:
+  <input type="text" id="displayNumber2"/>
+  </p>
+  
+  <p>3.
+    <input type="button" value="Multiply" onclick="multiplyNums()" />
+    Display the value of value1 * value2:
+  <input type="text" id="displayMulti"/>
+  </p>
+  
+  <p>4.
+    <input type="button" value="Add" onclick="addNums()"/>
+    Display the results of value1 + value2 in the following textfield.
+  <input type="text" id="displaySum"/>
+  </p>
+  
+  <p>5.
+    <input type="button" value="Increment count" onclick="incrementCount()"/>
+    Use the increment operator to add 1 to count and display the new value of count.
+  <input type="text" id="displayPlusOne"/>
+  </p>
+  
+  <p>
+    <input type="reset" name="Reset" id="button" value="Reset">
+  </p>
+</form>
+<p>&nbsp;</p>
+</body>
+</html>

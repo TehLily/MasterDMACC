@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Intro Javascript - Class 2/2/23</title>
+
+<!--modified by Lily Ellison
+    date: February 2, 2023  -->
+
+    <meta name="description" content="Class on 2/2/23 for WDV221">
+    <meta name="keywords" content="WDV221, DMACC, Web Development, JavaScript, Class, Lily Ellison">
+
+<style>
+
+body {background-color:#d9eff6;
+}
+
+.highlightTitle	{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-style:italic;
+	font-size:14px;
+	text-decoration:underline;
+	color:#096;
+}
+
+</style>
+
+<body>
+<!--
+<script>
+
+var TeamNameScore = currentScore("Cyclones", 28);
+
+function currentScore(teamName, score) {
+    var result = teamName + ": " + score;
+    return result
+}
+
+function getName(teamInfo) {
+    var colonIndex = teamInfo.indexOf(":");
+    var teamName = teamInfo.substring(0, colonIndex);
+    return teamName;
+}
+
+
+function getScore(teamInfo) {
+    var scoreIndex = teamInfo.indexOf(" ") + 1;
+    var strLength = teamInfo.length;
+    var teamScore = teamInfo.substring(scoreIndex, strLength);
+    return teamScore;
+}
+
+alert(TeamNameScore);
+alert(getName(TeamNameScore));
+alert(getScore(TeamNameScore));
+
+</script>
+-->
+<h1>Class Notes for Unit 5</h1>
+<p onclick="alert('you clicked this paragraph');">
+click this paragraph
+</p>
+
+<p id="p2">
+</p>
+  <!--  <input type="text" onkeyup="updateStringLength()" id="textBox1" />
+    <p><span id="outputArea"></span></p> 
+-->
+    <input type="text" onkeyup="updateStringLength()" id="textBox1" />
+    <p><span id="outputArea"></span></p>
+    
+
+<script>
+function updateStringLength() {
+    var message = "The length is " + document.getElementById("textBox1").value.length;
+    document.getElementById("outputArea").innerHTML = message;
+    return;
+}
+
+//function updateStringLength()
+//{
+  // var message = "The length is " + document.getElementById("textBox1").value.length;
+   //document.getElementById("outputArea").innerHTML = message;
+   //return;
+//}
+
+
+
+document.getElementById("p2").innerHTML = "Hey JS put this text here!";
+
+</script>
+
+</body>

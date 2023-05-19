@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Intro Javascript - Variables and Data Types Assignment</title>
+
+<!--modified by: Lily Ellison
+	date: January 21, 2023-->
+    <meta name="description" content="Variables and Data Types Assignment for WDV221">
+    <meta name="keywords" content="WDV221, DMACC, Web Development, JavaScript, Homework, Variables, Data Types, Lily Ellison">
+    
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Red+Hat+Mono&family=Roboto+Serif:opsz@8..144&display=swap" rel="stylesheet"> 
+    
+
+<style>
+
+body {background-color:#FC6;
+}
+
+.highlightTitle	{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-style:italic;
+	font-size:14px;
+	text-decoration:underline;
+	color:#096;
+}
+
+
+</style>
+</head>
+
+<body>
+<h2>WDV221 Intro Javascript</h2>
+<h3>Unit-2 - Variables Assignment</h3>
+<hr />
+<p>Please complete the following exercises on this page. When complete post this page to your  server. Make a link in your WDV221 homework  page for this assignment.</p>
+
+<p>Submit this assignment on Blackboard. Please include a link to your homework page.</p>
+
+<h3>For each exercise use a comment line to put the Exercise number within the script. Also place a short description of what the script is doing.</h3>
+
+<hr />
+<p>1. Define a String variable called schoolName and assign it a value of DMACC.</p>
+
+<p>2. Define a String variable called courseName and assign it a value of WDV221 Intro Javascript</p>
+
+<p>3. Define a Numeric variable called testScore and assign it a value of 100.00. </p>
+
+<p>4. Define a Numeric variable called courseGrade. Do not give it a value.</p>
+
+<p>5. Define a Boolean variable called courseCompleted. Give it a value of false.</p>
+
+<p>Display the value of all the variables in their own paragraphs below. </p>
+
+<hr />
+<script>
+    //Exercise 1 - declaring a variable schoolName and giving it the string value "DMACC"
+    var schoolName = "DMACC";
+    //Exercise 2 - declaring a variable courseName and giving the value "WDV221 Intro Javascript"
+    var courseName = "WDV221 Intro Javascript";
+    //Exercise 3 - declaring a variable testScore and giving it the value 100.00
+    var testScore = 100.00;
+    //Exercise 4 - declaring the variable courseGrade without giving it a value
+    var courseGrade;
+    //Exercise 5 - declaring the variable courseCompleted and giving it the boolean value of false
+    var courseCompleted = false;
+
+ 
+
+
+    //Exercise 6/not numbered - using document.write() to display concatinated strings with variable values, each within their own paragraph.
+    document.write("<p>I attend " + schoolName + " where I major in Computer Information Systems.</p>");
+    document.write("<p>This semester, one of my favorite courses is " + courseName + ".</p>"); 
+    document.write("<p>I hope I will receive a " + testScore + " on the next test.</p>");
+    document.write("<p>My grade in the class is " + courseGrade + ".</p>");
+    document.write("<p>Have I completed this course yet? " + courseCompleted + ".</p>");
+
+</script>
+
+<p>Display the number of characters in the course name.</p>
+
+
+<script>
+    //using document.write() to display a concatinated string that includes the length method to calculate the number of characters in the value for the courseName variable
+    document.write("<p>There are " + courseName.length +" characters in the course name.</p>");
+</script>
+
+
+
+<p>Display the course name as all uppercase letters.</p>
+
+<script>
+    //using toUpperCase() to convert the letters in the courseName string to uppercase and displaying using document.write()
+    document.write("<p>In all caps, the course name would be: " + courseName.toUpperCase() + "</p>");
+</script>
+
+
+<p>Using the String Object determine if the course name contains the letters WDV?  Look at the String methods. Does one or more of them look inside the variable for specific content?</p>
+
+<script>
+    //Described in the text displayed using the document.write() method.
+    document.write("<p>Using the includes() method, we can check for a specified value inside a string. courseName.includes(\"WDV\") gives us the value: " +courseName.includes("WDV") + ". There are several other string object methods that can look for specified values inside a string as well. A few of them are indexOf(), search(), startWith(), and endsWith().</p>")
+</script>
+
+
+
+</body>
+</html>

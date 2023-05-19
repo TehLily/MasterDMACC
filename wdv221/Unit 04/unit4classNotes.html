@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Intro Javascript - Class 2/2/23</title>
+
+<!--modified by Lily Ellison
+    date: February 2, 2023  -->
+
+    <meta name="description" content="Class on 2/2/23 for WDV221">
+    <meta name="keywords" content="WDV221, DMACC, Web Development, JavaScript, Class, Lily Ellison">
+
+<style>
+
+body {background-color:#d9eff6;
+}
+
+.highlightTitle	{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-style:italic;
+	font-size:14px;
+	text-decoration:underline;
+	color:#096;
+}
+
+</style>
+
+<body>
+
+    
+<script scr = "scripts/currencyFormatFunctions.js"> //This links in an external JavaScript library
+    var item = "Milk";
+    var count = 3;
+    function displayInfo(item, count) {
+        document.write("<p>" + item + ": " + count + "</p>");
+    }
+   
+    function currentScore(teamName, score) {
+        var result = teamName + ": " + score;
+        return result
+    }
+
+    
+    function makeListItem(listItem) {
+        var list;
+        list = ("<li>" + listItem + "</li>");
+        return list;
+    }
+
+    var humanAge;
+    function convertToDogyears(humanAge) {
+        var DOG_YEAR_CONST = 7;
+        var dogYears;
+        dogYears = humanAge * DOG_YEAR_CONST;
+        return dogYears;
+    }
+    
+    function addItemToList() {
+        //get the user input (value)
+        var newItem = document.getElementById("itemToAdd").value;
+
+        //add item to list
+        newItem = makeListItem(newItem);
+        document.getElementById("myList").innerHTML += newItem;
+        return;
+    }
+
+
+</script>
+
+<h1>Groceries:</h1>
+
+<p>Item to Add <input type="text" value="default text" id="itemToAdd" /></p>
+<input type = "button" value = "Add Item" onclick = "addItemToList();" />
+
+
+<ul id="myList">
+    <li>
+        <script>
+            displayInfo(item, count);
+        </script>
+    </li>
+    <script>
+        document.write(makeListItem("cheese"));
+    </script>
+</ul>
+
+
+<script>
+    document.write(currentScore("Dodgers", 7));
+
+    alert("My age in dog years is: " + convertToDogyears(39));
+
+
+
+</script>
+
+
+
+</body>

@@ -1,0 +1,155 @@
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Style Object-CSS Interactions In Class Exercises</title>
+<style type="text/css">
+  .style1 {color: #FF0000}
+</style>
+</head>
+<!--
+    Modified by: Lily Ellison
+    date: 4/20/23
+-->
+<meta name:"description" content="Unit 10 Style Object Assignment for WDV221.">
+<meta name="keywords" content="WDV221, DMACC, Web Development, JavaScript, Homework, Unit 10, Style Object, Lily Ellison">
+
+<script>
+
+//1.
+  function turnFontRed() {
+    document.getElementById("redFont").style.color="red";
+  }
+
+//2.
+  function centerH3Element() {
+    document.getElementById("centerH3").style.textAlign="center";
+  }
+
+//3.
+  function leftAlignH3Element() {
+    document.getElementById("centerH3").style.textAlign="left";
+  }
+
+//4.
+  function changeFont() {
+    document.getElementById("fontChange").style.fontFamily="Impact,Charcoal,sans-serif";
+  }
+
+//5.
+  function resetFont() {
+    document.getElementById("fontChange").style.fontFamily="initial";
+  }
+
+//6.
+  function bigifyFont() {
+    document.getElementById("changeSize").style.fontSize=24;
+  }
+
+//7.
+  function resizeFont() {
+    document.getElementById("changeSize").style.fontSize="initial";
+  }
+
+//8.
+  function turnYellow() {
+   document.getElementById("submarine").style.backgroundColor="yellow";
+  }
+
+//9.
+  function frogHider() {
+    document.getElementById("frogPic").style.visibility="hidden";
+  }
+
+//10.
+  function poofFrog() {
+    document.getElementById("frogPic").style.visibility="visible";
+  }
+
+//11.
+  function doubleFrog() {
+    document.getElementById("frogPic").style.scale=2;
+  }
+
+//12.
+  function halfFrog() {
+    document.getElementById("frogPic").style.scale=1;
+  }  
+
+//13.
+  function buildTheFence() {
+    document.getElementById("borderPatrol").style.borderStyle="ridge";
+  }  
+
+//14.
+  function tearDownThatWall() {
+    document.getElementById("borderPatrol").style.borderStyle="none";
+  }
+
+//15.
+  function makeGreenWithEnvy() {
+    document.getElementById("rollingGreens").style.backgroundColor="green";
+  }
+
+  function calmDown() {
+    document.getElementById("rollingGreens").style.backgroundColor="initial";
+  }
+</script>
+
+<body onkeydown="turnYellow()">
+<h1>WDV221 Intro Javascript</h1>
+<h3 id="centerH3" >Style Object - CSS Interactions - In Class Exercises</h3>
+
+<p>Please modify this page to create the following Dynamic HMTL effects. </p>
+
+<p id="redFont" onclick="turnFontRed()">1. Click this paragraph to change the font color to red.</p>
+<p onmouseover="centerH3Element()">2. Mouseover this paragraph to center the H3 element containing &quot;CSS Interactions&quot;.</p>
+
+<p>3. Click the button to left align the H3 element. </p>
+<p>
+  <label>
+  <input type="submit" name="button" id="button" value="To The Left" onclick="leftAlignH3Element()"/>
+  </label>
+</p>
+<p id="fontChange" onmouseover="changeFont()">4. Mouseover this paragraph to change the font to a font of you choice.</p>
+
+<p onclick="resetFont()">5. Click on this paragraph to return the font to the default font.</p>
+
+<p>6. Click on the button to make the word <span id="changeSize">SALE</span> font size 24. </p>
+<p>
+  <label>
+  <input type="submit" name="button2" id="button2" value="Big Sale" onclick="bigifyFont()" />
+  </label>
+</p>
+
+<p>7. Click on the button to return the word to its original size.</p>
+<p>
+  <label>
+    <input type="submit" name="button3" id="button3" value="Regular Sale" onclick="resizeFont()" />
+  </label>
+</p>
+
+<p id="submarine">8. Press any key to make the paragraph background color yellow. </p>
+
+<p onclick="frogHider()">9. Click on this paragraph to hide the Frog image shown below.</p>
+
+<p>10. Use the following button to make the Frog image shown below reappear.</p>
+<p>
+  <input type="submit" name="button4" id="button4" value="Froggy Come Back!" onclick="poofFrog()" />
+</p>
+
+<p>11. Mouseover the Frog image to make its height and width double its original size. </p>
+<p><img src="frog.jpg" width="100" height="100" id="frogPic" onmouseover="doubleFrog()" onclick="halfFrog()"/></p>
+
+<p>12. Use a click event on the Frog image to make it return to original size. </p>
+
+<p id="borderPatrol" ondblclick="buildTheFence()">13. Doubleclick on this paragraph to place a border around this paragraph.</p>
+
+<p onclick="tearDownThatWall()">14. Click on this paragraph to remove the border from the previous paragraph. </p>
+
+<p id="rollingGreens" onmouseover="makeGreenWithEnvy()" onmouseout="calmDown()">15. Mouseover this paragraph to turn its background color to green. When you mouseoff the paragraph return it to its normal color. </p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

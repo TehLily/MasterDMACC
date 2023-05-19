@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WDV221 Intro Javascript - Form Validation Skill Test</title>
+</head>
+<html>
+<!--
+  Modified by: Lily Ellison
+  date: 05/03/23
+-->
+<meta name:"description" content="Form Validation Skill Test for WDV221.">
+<meta name="keywords" content="WDV221, DMACC, Web Development, JavaScript, Homework, Final, Skill Test, Form Validation, Lily Ellison">
+
+<body onload="" >
+
+<h1 id="Heading1" class="">WDV221</h1>
+
+<style>
+
+
+</style>
+
+
+<script>
+    //1.:
+	function ValidateForm() {
+        var AT = "@";
+        var msg = "Error. Invalid Email. Please enter a valid Email."
+        var uEmail = document.getElementById("userEmail").value;
+        if(uEmail.includes(AT)) {
+            clearTextBox();
+        }
+        else {
+            document.getElementById("errorMessage").innerHTML = msg;
+            document.getElementById("userEmail").style.border = "solid red 2px";
+        }
+
+	}
+
+    function clearTextBox() {
+        document.getElementById("errorMessage").innerHTML = "";
+        document.getElementById("userEmail").style.border = "";
+        document.getElementById("passwordStrength").innerHTML= "";  //figured it should clear this, too
+    }
+
+    //2.:
+    function checkPasswordStrength() {
+        var uPass = document.getElementById("userPassword").value;
+        var uPLen = uPass.length;
+        var pMsg = "";
+        var pColor = "black";
+        if(uPLen < 5) {
+            pMsg = "Weak";
+            pColor = "red";
+        }
+        if(uPLen >= 5 && uPLen < 10) {
+            pMsg = "Medium";
+            pColor = "gold"; //I found yellow hard to read, so I used "gold"
+        }
+        if(uPLen >= 10) {
+            pMsg = "Strong";
+            pColor = "green";
+        }
+        document.getElementById("passwordStrength").innerHTML= pMsg;
+        document.getElementById("passwordStrength").style.color= pColor;
+    }
+
+	
+
+</script>
+
+<h2> Create New User </h2>
+
+<form id="myForm">
+	<p>User Email:<input type="text" id="userEmail"/> </p>
+	<p>Password:<input type="password" id="userPassword" onkeyuP="checkPasswordStrength()" /> <span id="passwordStrength"></span>  </p>
+	
+	<input type="button" onclick="ValidateForm();" value="submit"/>
+	<input type="reset" value="reset" onclick="clearTextBox()" />
+	<span id="errorMessage"></span>
+</form>
+
+<h2> Instructions </h2>
+<ol>
+	<li>Create an email validation function that is triggered from the button click even and does the following:</li>
+	<ol>
+		<li>
+			Gets the email address entered in the text box and performs validation check for an "@"
+		</li> 
+		<li>
+			Gives an error message if the email is missing an "@". The message should be displayed in the errorMessage span.
+		</li>
+		<li>
+			Sets a solid 2px red border around the userEmail text box
+		</li>
+		<li>
+			Clears the errorMessage span and resets the border of userEmail if there are no errors. This should also happen when the reset button is pressed.
+		</li>  
+	</ol>
+	<li>
+		Create a function called checkPasswordStrength that triggers on the keyUp of the userPassword text box.
+	</li>
+	<ol>
+		<li>If the length of the password is less than 5 characters display the word "Weak" in red in the passwordStrength span</li>
+		<li>If the length of the password is greater than 5 characters but less than 10 display the word "Medium" in yellow in the passwordStrength span</li>
+		<li>If the length of the password is greater than 10 characters display the word "Strong" in green in the passwordStrength span</li>
+	</ol>
+</ol>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WDV221 Intro Javascript - Midterm Part 2</title>
+    <!--
+      Modified by: Lily Ellison
+      date: 2/25/23
+    -->
+    <meta name:"description" content="Midterm Page for WDV221.">
+    <meta name="keywords" content="WDV221, DMACC, Web Development, JavaScript, Homework, Midterm, Part 2, Lily Ellison">
+<style>
+	
+	#myList { background-color: lightblue;}
+	
+</style>
+
+
+</head>
+<html>
+<body>
+
+<h1 id="Heading1">WDV221 Midterm Part 2</h1>
+
+<h2>Directions:</h2>
+<p>  1. Modify the code so the user can type in the text box and click the "Add item to list" button to add what they typed to the myList element. 
+</p>
+<p>  2. Modify the code so the "Change List Color" button will change the background color of the myList element. 
+</p>
+
+
+<script>
+    function addItemToList() {
+        //get the user input (value)
+        var newItem = document.getElementById("itemToAdd").value;
+
+        //add item to list
+        newListItem = ("<li>" + newItem + "</li>");
+        document.getElementById("myList").innerHTML += newListItem;
+        return;
+    }
+
+    function changeColor(){
+    document.getElementById("myList").style.backgroundColor = "yellow";
+    }
+</script>
+
+
+
+<p>Item:
+<input type="text" value="" id="itemToAdd"/>
+</p>
+<input type="button" value="Add item to list" onclick="addItemToList();" />
+
+<input type="button" value="Change List Color" onclick="changeColor();" />
+
+<ol id="myList">	
+	<li>item1</li>
+</ol>
+
+<p>
+
+
+</body>
+</html>

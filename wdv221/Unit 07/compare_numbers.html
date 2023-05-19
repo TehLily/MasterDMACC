@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Intro Javascript - Compare Numbers</title>
+</head>
+<!--
+    Modified by: Lily Ellison
+    date: 3/9/23
+-->
+<meta name:"description" content="Unit 07 Compare Numbers Assignment for WDV221.">
+<meta name="keywords" content="WDV221, DMACC, Web Development, JavaScript, Homework, Unit 07, Compare Numbers, Lily Ellison">
+    
+<script>
+    //(1.)Create a function called compareNumbers( ):
+function compareNumbers() {
+    //get input from first text box and parse to integer:
+    var num01 = parseFloat(document.getElementById("value1").value);
+    //get input from second text box and parse to integer:
+    var num02 = parseFloat(document.getElementById("value2").value);
+    //set a blank default for the result:
+    var result = "";
+    //(2.)Compares numbers:
+    //validate input as present in both text boxes:
+    if(num01 == "" || num02 == "") {
+        result = "Information missing. Please try again."
+    }
+    //selects num01 if it is larger:
+    else if(num01 > num02) {
+      //(3.)Updates result to larger number:
+      result = num01
+    }
+    //selects num02 if it is larger:
+    else if(num02 > num01) {
+      //(3.)Updates result to larger number:
+      result = num02
+    }
+    //select for matching value:
+    else if(num01 === num02) {
+        //(3.)update result to equal if same:
+        result = "Equal";
+    }
+    //(4.)display result using innerHTML:
+    document.getElementById("displayResult").innerHTML = result;
+    return;
+}
+    
+//function to reset entries and result (input type of reset already resets text box entry):
+function resetOutput() {
+    //overwrites the results to blank:
+    document.getElementById("displayResult").innerHTML = "";
+    return;
+}
+    
+</script>
+
+<body>
+<h2>WDV221 Intro Javascript</h2>
+<h3>Unit 7 - Comparisons and IF Statements - Compare Numbers Assignment </h3>
+<hr />
+<p>Please complete the following exercises on this page. When complete post this page to your  server. Make a link in your WDV221 homework  page for this assignment. </p>
+<p>Include a comment in each script with the exercise number and a description of what the script is supposed to do.</p>
+<p>Using Blackboard submit this  Assignment.</p>
+<hr />
+<form id="form1" name="form1" method="post" action="">
+  <p>Value 1: 
+    <input type="text" name="value1" id="value1" />
+  </p>
+  <p>Value 2: 
+    <input type="text" name="value2" id="value2" />
+  </p>
+  <p>Result: <span id="displayResult"></span>  </p>
+  <p>
+    <input type="button" value="Compare Numbers" onclick="compareNumbers();"/>
+  </p>
+  <p>
+    <!--(5.)Provide reset function:-->
+    <input type="reset" name="Reset" id="button" value="Reset" onclick="resetOutput();" />
+  </p>
+</form>
+
+<p>Instructions:</p>
+<ol>
+  <li>Create a function called compareNumbers( ).</li>
+  <li>The function will compare two numbers entered in the form above. </li>
+  <li>The function should display the largest number or &quot;Equal&quot; if both values are the same.</li>
+  <li>The results will be displayed in a span element using the .innerHTML property.</li>
+  <li>Provide a reset function that will properly clear the form between attempts.</li>
+</ol>
+</body>
+</html>
+

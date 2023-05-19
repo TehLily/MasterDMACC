@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WDV221 Intro Javascript</title>
+
+<script>
+
+function displayLoop()
+{
+	//This loop is a user controlled loop.  It uses a sentinel LOOP CONTROL VARIABLE.
+	//This loop will run until the user tells it to stop.  This is one of many ways to control a loop.	
+	
+	var finished = 'N';	//LOOP CONTROL VARIABLE, loop will process until the variable changes.
+	
+	while(finished == "N")
+	{
+		//body of the loop
+	
+		var inValue = prompt("Enter a value. ","Test");	//get a value from the user or take the default value of 'Test'	
+		
+		alert("You entered " + inValue);				//display the result of the loop
+		
+		finished = prompt("Enter Y if finished","N");	//If not finished just hit enter and the "N" will default to the loop control variable
+	}
+}//end displayLoop()
+
+</script>
+
+<script>
+
+function accumulatorLoop()
+{
+	//This loop is a user controlled loop.  It uses a sentinel LOOP CONTROL VARIABLE.
+	//This loop will run until the user tells it to stop.  This is one of many ways to control a loop.
+	//Each time through the loop the input value will be added to the running total.  It will dispaly when finished.	
+	
+	var finished = 'N';	//LOOP CONTROL VARIABLE, loop will process until the variable changes.
+	
+	var total = 0;		//this is the accumulator variable
+	
+	while(finished == "N")
+	{
+		//body of the loop
+	
+		var inValue = prompt("Enter a value. ","0.0");	//get a value from the user or take the default value of 'Test'	
+		
+		inValue = parseFloat(inValue);					//convert the String value from the form element into a number in the same variable
+		
+		total += inValue;								//add the new amount to the running total amount (Accumulated amount)
+		
+		finished = prompt("Enter Y if finished","N");	//If not finished just hit enter and the "N" will default to the loop control variable
+	}
+	
+	document.getElementById("totalResult").innerHTML = total;	//Output the accumulated amount to the document object to display the results
+}//end displayLoop()
+
+
+</script>
+
+
+</head>
+
+<body>
+<h1>WDV221 Intro Javascript</h1>
+<h2>Loops - Code Examples</h2>
+<h3>FOR Loop Examples</h3>
+<p>FOR Loop that displays the values of a counter until it hits 5</p>
+<p>
+	<script>
+        for(x=1;x<=5;x++)
+        {
+            document.write(x);	//display the value of x each time through the loop;	
+        }
+    </script> 
+</p>
+<p>
+  <script>
+        for(x=1;x<=5;x++)
+        {
+            document.write(x + "<br/>");	//display the value of x each time through the loop on a new line	
+        }
+    </script>
+</p>
+<h3>WHILE Loop Examples</h3>
+<p>WHILE Loop that displays the values of a counter until it hits 5</p>
+<p>
+  <script>
+		var x=1;		//declare and assign a value to the LOOP CONTROL VARIABLE
+        while(x<=5)		//check the end condition BEFORE processing body of the loop
+        {
+            document.write(x);	//display the value of x each time through the loop
+			x++;				//update LOOP CONTROL VARIABLE inside the body of the loop	
+        }
+    </script> 
+</p>
+<p>
+  <script>
+		var x=1;		//declare and assign a value to the LOOP CONTROL VARIABLE
+        while(x<=5)		//check the end condition BEFORE processing body of the loop
+        {
+            document.write("<p>Number: " + x + "</p>");	//display the value of x each time through the loop
+			x++;				//update LOOP CONTROL VARIABLE inside the body of the loop	
+        }
+    </script> 
+</p>
+<h3>User Controlled Loop Example</h3>
+<p>Start a user controlled loop with a sentinel value.  
+  <input type="button" value="Start Loop" onClick="displayLoop()"/>
+</p>
+
+<h3>Accumulator Loop Example</h3>
+<p>Accumulator loops are often controlled by the user.  The loop will run as long as the user has more data to input or add to the running total. Start an accumulator loop. 
+  <input type="button" value="Accumulator Loop" onClick="accumulatorLoop()"/>
+</p>
+<p>Total amount entered.  <span id="totalResult"></span></p>
+
+<h3>Loop Examples that output HTML</h3>
+<p>Create a dynamic set of list items</p>
+<ol>
+  <script>
+		var x=1;		//declare and assign a value to the LOOP CONTROL VARIABLE
+        while(x<=5)		//check the end condition BEFORE processing body of the loop
+        {
+            document.write("<li>Number: " + x + "</li>");	//display the value of x each time through the loop
+			x++;				//update LOOP CONTROL VARIABLE inside the body of the loop	
+        }
+    </script> 	
+</ol>
+<p>Create a dynamic table with Javascript.  This technique uses nested loops.  The outer loop controls the number of rows (4).  The inner loop controls the number of cells per row(8).</p>
+<table border="1" bordercolor="green">
+  <script>
+        for(x=1;x<=4;x++)	//outer loop controls the number of rows
+        {
+            document.write("<tr>");	//create a table row
+			
+			for(i=1;i<=8;i++)		//must use a different loop control variable than the outer loop
+			{
+				document.write("<td>Test</td>");	//write one cell per time through the loop	
+			}
+			
+            document.write("</tr>");	//create an end table row			
+        }
+    </script>
+</table>
+</body>
+</html>

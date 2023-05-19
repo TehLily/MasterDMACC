@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Intro Javascript - Function Introduction Assignment</title>
+
+<!--modified by Lily Ellison
+    date: January 30, 2023  -->
+
+    <meta name="description" content="Function Introduction Assignment for WDV221">
+    <meta name="keywords" content="WDV221, DMACC, Web Development, JavaScript, Homework, Functions, Lily Ellison">
+
+<style>
+
+body {background-color:#d9eff6;
+}
+
+.highlightTitle	{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-style:italic;
+	font-size:14px;
+	text-decoration:underline;
+	color:#096;
+}
+
+</style>
+
+<script>
+    var myName = "Lily";
+    function sayHello() {
+        window.alert("Hello, " + myName + "!");
+    }
+    function printHello() {
+        document.write("<h1>Hello, " + myName + "!</h1>");
+    }
+    function characterCount() {
+        var testString = prompt("Please enter a string: ");
+    
+        window.alert("Your string has " + testString.length + " characters.");
+    
+    }
+    
+</script>
+</head>
+
+<body>
+
+
+<h2>WDV221 Intro Javascript</h2>
+<h3>Unit-3 - Functions </h3>
+<hr />
+<p>Please complete the following exercises on this page. When complete post this page to your server. Make a link in your WDV221 homework  page for this assignment.</p>
+<p>Submit this assignment on Blackboard. Please include a link to your homework page.</p>
+<hr />
+
+<p>
+Use Javascript to complete the following tasks.
+<ol>
+<li> Create a global variable and assign it with a string of your name</li> <!--Done-->
+<li> Create a function called sayHello( ).  The function will use the alert( ) function to display your name.  Call it during runtime.</li> <!--Done-->
+<li>Create a function called printHello( ). The function will use the document.write( ) function to display your name.  Call it twice in a row during runtime.</li>
+<li> Call the printHello( ) function so that it prints your name inside of an h1 element. </li> <!--Done-->
+    <script>
+        sayHello(); //Task #2
+        printHello(); //Task #3
+        printHello();
+    </script>
+<li> Create a function called characterCount( ).
+	<ol>
+		<li>Create a local variable called testString.</li> <!--Done-->
+		<li>Use the prompt( ) to ask for a string.  Store the result in the testString variable.</li> <!--Done-->
+		<li>Use the String.length property to get the number of characters in the variable.</li> <!--Done-->
+		<li>Display the results using an alert( ).</li> <!--Done-->
+		<li>Call this function using an event handler such as onclick.</li> <!--Done-->
+    </ol>
+</li>
+
+<p>
+    <button onClick = "characterCount()">Test some code!</button>
+</p>
+
+</body>
+</html>
