@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+    
+  }
+  
+  body {
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-size: 20px;
+    background-image: url("../images/pawprints_big.jpg");
+  }
+
+  h1 {
+    font-family: 'Oregano', 'Goudy Stout', cursive;
+    font-size: 4em;
+    color: white;
+  }
+
+  h2 {
+    font-family: 'Lemonada', 'Cooper Black', cursive;
+  }
+
+  h3 {
+    font-family: 'Carter One', 'Elephant', cursive;
+  }
+
+  nav {
+    font-family: 'Gelasio', 'Times New Roman', serif;
+    font-size: .9em;
+    
+  }
+
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: aliceblue;
+  }
+
+  li a {
+    display: block;
+    text-decoration: none;
+    color: navy;
+  }
+
+  li::marker {
+    color: rgb(91, 190, 190);
+  }
+
+  li a:hover {
+    background-color: lightblue;
+    color: black;
+  }
+
+  .active {
+    background-color: midnightblue;
+    color: lightcoral;
+  }
+  
+  /* Style the header */
+  .header {
+    background-color: cornflowerblue;
+    padding: 30px;
+    text-align: center;    
+  }
+  
+  /* Container for flexboxes */
+  .row {
+    display: flex;
+    flex-direction: column;   
+  }
+
+  #graddown {
+    background-image: linear-gradient(	#0080ff, #7300e6);
+  }
+
+  #graddown p::first-letter {
+    font-size: 1.5em;
+  }
+  
+  #gradup {
+    background-image: linear-gradient(#7300e6,	#0080ff );
+  }
+
+  #gradup p span {
+    font-style: italic;
+  }  
+
+  /* Create three unequal columns that sits next to each other */
+  .column {
+    padding: 10px;
+    align-items: center;
+  }
+
+  .flex_image, .double {
+    display: flex;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    width: 50%;
+  }
+  
+  .double {
+    border: 4px double tan;
+    background-color: beige;
+    border-radius: 10px;
+  }
+  
+  /* Left and right column */
+  .column.side {
+    flex: 1;
+  }
+  
+  /* Middle column */
+  .column.middle {
+    padding: 20px;
+    flex: 2;
+    }
+  
+  /* Style the footer */
+  .footer {
+    background-color:mediumpurple;
+    padding: 10px;
+    text-align: center;
+    font-size: .5em;
+  }
+  
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media (min-width: 600px) {
+    .row {
+        flex-direction: row;
+    }
+    nav {
+        display: inline;
+    }
+    ul {
+        padding: 10px;
+    }
+    li {
+        padding: 5px;
+    }
+    .flex_image, .double {
+        width: 80%;
+    }
+    .header img {
+        max-width: 638px;
+    }
+    ul {
+        list-style-type: none;
+    }
+    #gradup {
+      background-image: linear-gradient(#0080ff, #7300e6);
+    }
+  }

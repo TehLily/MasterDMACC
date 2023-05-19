@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Contact Us - Pets To Go</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--author: Lily Ellison
+	date: November 27, 2022-->
+    <meta name="description" content="Contact Page for Pets To Go.">
+    <meta name="keywords" content="Pets To Go, WDV101, Final Presentation, Lily Ellison, Contact, Non-profit">
+
+    <link rel="stylesheet" href="css/main_stylesheet.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Gelasio&family=Lato&family=Lemonada:wght@300;400&family=Noto+Sans+Thai&family=Oregano:ital@0;1&family=Overpass&display=swap" rel="stylesheet"> 
+
+    
+
+    
+    
+ 
+
+<style>
+
+
+
+fieldset {
+   border-radius: 5px;
+   background-color: #b5facf;
+   margin: 10px;
+   padding: 10px;
+   border: hidden;
+}
+
+fieldset div {
+   margin: 5px 0;
+}
+
+  input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+textarea {
+  height: 80px;
+  width: 100%;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1 style="text-shadow: 2px 2px 5px rgb(82, 82, 207);">Contact Pets To Go</h1>
+  <img src="images/pets.jpg" alt="Pets" width="100%">
+</div>
+
+<div>
+    <nav>
+      <ul class="row">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About PTG</a></li>
+        <li><a href="our_pets.html">Our Pets</a></li>
+        <li><a href="gallery.html">Gallery of Current Pets</a></li>
+        <li class="active"><a class="active" href="contact.html">Contact Us</a></li>
+      </ul> 
+    </nav>
+</div>
+
+<div class="row">
+    
+  <div class="column side" style="background-color:rgb(63, 117, 235);">
+    <h2>How to Reach Us:</h2>
+    <img src="images/dog_phone.jpg" alt="Dog Phone" width="100%">
+    <p>Give us a call at: (217) 698-3091</p>
+    <img style="border-radius: 50%;" src="images/cat_phone.jpg" alt="Cat Phone" width="100%">
+  </div>
+
+  <div class="column middle" style="background-color:rgb(137, 227, 250);">
+
+    
+    <legend>Send us a message or request information:</legend>
+
+    <fieldset>
+      <form method="post" action="form_response_basic.php">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" placeholder="Your email address..">
+
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" name="phone" placeholder="Your phone number..">
+
+        <p>I would like information on... (select all that apply)</p>
+        <input type="checkbox" id="option1" name="option1" value="General">
+   <label for="option1"> Pets To Go in general</label><br>
+   <input type="checkbox" id="option2" name="option2" value="Adoption">
+   <label for="option2"> Adopting a Pet</label><br>
+   <input type="checkbox" id="option3" name="option3" value="Donating">
+   <label for="option3"> Donating to Pets To Go</label><br>
+   <input type="checkbox" id="option4" name="option4" value="Volunteering">
+   <label for="option4"> Volunteering</label><br>
+   <input type="checkbox" id="option5" name="option5" value="Other">
+   <label for="option5"> Other</label><br>
+ 
+ <p>My preferred method of contact is...</p>
+     
+    <input type="radio" id="email" name="method" value="Email">
+       <label for="email">Email</label><br>
+ 
+    <input type="radio" id="phone" name="method" value="PhoneCall">
+       <label for="phone">Phone Call</label><br>
+ 
+    <input type="radio" id="text" name="method" value="TextMessage">
+       <label for="text">Text Message</label><br><br>
+
+    <label for="inputMessage">Message: </label>
+
+    <textarea name="inputMessage" id="inputMessage">
+
+    </textarea>
+
+
+        <input type="submit" value="Submit">
+      </fieldset>
+  </div>
+
+  <div class="column side" style="background-color:rgb(63, 117, 235);">
+    <p>Or come by and see us:</p>
+
+    <img src="images/dog_car_02.jpg" alt="Dog in Car" width="100%">
+    <p>Pets To Go Animal Shelter
+      <br>3183 S Veterans Pkwy
+      <br>Springfield, Illinois 62704</p>
+      
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3067.0946298116405!2d-89.71046558484083!3d39.759983703242476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88754765d96d8957%3A0xad646f0c356c61ec!2s3183%20S%20Veterans%20Pkwy%2C%20Springfield%2C%20IL%2062704!5e0!3m2!1sen!2sus!4v1669591847665!5m2!1sen!2sus" width="100%"style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+      <p>Hours of Operation are listed <a style="color: bisque;" href="about.html">here.</a></p>
+
+      <img src="images/cat_travel.jpg" alt="Traveling Cat" width="100%">
+    
+  </div>
+
+</div>
+
+<div>
+    <nav style="text-align: right;">
+        <ul class="row">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About PTG</a></li>
+          <li><a href="our_pets.html">Our Pets</a></li>
+          <li><a href="gallery.html">Gallery of Current Pets</a></li>
+          <li><a href="contact.html">Top of Page</a></li>
+        </ul> 
+      </nav>
+</div>
+
+
+<div class="footer">
+    <p><img src="images/CatDog.png" alt="Cat and Dog">
+Website created by Lily Ellison of <a href="http://www.thebeaddragon.com">The Bead Dragon</a>
+<img src="images/PTG.png" alt="PTG Logo"></p>
+<p>Photos courtesy of contributors on <a href="http://pixabay.com">pixabay.</a></p>
+  
+</div>
+
+</body>
+</html>
+
+
