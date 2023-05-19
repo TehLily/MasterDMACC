@@ -1,2 +1,2 @@
 # MasterDMACC
-All code for DMACC classes
+All code for DMACC final projects
